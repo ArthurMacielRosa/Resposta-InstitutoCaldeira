@@ -1,0 +1,206 @@
+1.
+import java.time.LocalDate;
+
+public class Agendamento{
+	public static void main(String[] args) {
+		LocalDate base = LocalDate.of(2025, 6, 1);
+		int dias = 7;
+		LocalDate novaData = base.plusDays(dias * 2 - 3);
+		System.out.println(novaData.getDayOfMonth());
+	}
+}
+
+// R: 12
+
+2.
+public class Avaliacao{
+	public static void main(String[] args) {
+		int nota = 7;
+		int peso = 2;
+		double media = (nota * peso + 6 * 3) / 5;
+		if(media >= 7.0){
+		    System.out.println("Aprovado");
+		}else{
+		    System.out.println("Revisar conteúdo");
+		}
+	}
+}
+
+// R: Revisar conteúdo
+
+3.
+public class Item{
+	public static void main(String[] args) {
+        String nome;
+        int quantidade;
+        
+        public Item(String nome) {
+        this.nome nome;
+        this.quantidade = 1;
+}
+
+    public Item(String nome, int quantidade) {
+        this.nome = nome;
+        this.quantidade quantidade;
+}
+
+    public static void main(String[] args) {
+        Item x = new Item("Caderno");
+        Item y = new Item("Caneta", 3);
+        System.out.println(x.quantidade + y.quantidade);
+	}
+}
+
+// R: 4
+
+4.
+    int prioridade = 4;
+    int urgencia = 8;
+    if (prioridade > 3 && urgencia > 7) {
+        System.out.println("Tarefa critica");
+    } else if (prioridade > 3 || urgencia > 7) {
+        System.out.println("Tarefa importante");
+    } else {
+        System.out.println("Tarefa comum");
+
+// R: Tarefa crítica
+
+5.
+int notificacoes = 0;
+    
+    for(int i = 1; i <= 5; i++) {
+        if (i%2== 0) {
+            notificacoes += 2;
+        } else {
+            notificacoes++;
+        }
+    }
+    System.out.println(notificacoes);
+
+// R: 7
+
+6. 
+ArrayList<String> horarios = new ArrayList<>();
+    horarios.add("08:00");
+    horarios.add("10:00");
+    horarios.add("12:00");
+    horarios.remove(1);
+    horarios.add("14:00");
+    System.out.println(horarios.get(1));
+
+// R: 12:00
+
+7.
+public class Livro {
+	String titulo;
+	boolean emprestado;
+	public void emprestar() {
+		emprestado = true;
+	}
+
+	public String status() {
+		if (emprestado) {
+			return "Indisponivel";
+		}
+		return "Disponível";
+
+	Livro l = new Livro();
+	l.titulo "Java para Iniciantes";
+	System.out.println(1.status());
+	l.emprestar();
+	System.out.println(1.status());
+
+// R: Disponível / Indisponível
+
+8.
+public class Usuario {
+	String nome;
+	int idade;
+
+public Usuario(String n, int i) {
+	nome = n;
+	idade = i;
+}
+}
+
+// R: Usuário u = new Usuário("João", 25);
+
+9.
+LocalDate hoje LocalDate.of (2025, 6, 9);
+LocalDate prazo = hoje.plusDays (10);
+System.out.println(prazo);
+
+// R: 2025-06-19
+
+10.
+public class Main {
+  LocalDate data LocalDate.of (2025, 6, 10);
+  int diasUteis = 0;
+  while (diasUteis < 7) {
+    data data.plusDays(1);
+    boolean fimDeSemana data.getDayOfWeek() == DayOfWeek.SATURDAY || data.getDayOfWeek() == DayOfWeek.SUNDAY;
+    boolean feriado data.equals(LocalDate.of (2025, 6, 15));
+    if (!fimDeSemana && !feriado) {
+      diasUteis++;
+    }
+  }
+  System.out.println(data);
+}
+
+// R: 2025-06-19
+
+
+11.
+import java.time.LocalTime;
+
+public class Main {
+    public static void main(String[] args) {
+      LocalTime envio = LocalTime.of (23, 0);
+      LocalTime limite = LocalTime.of(22, 59);
+      if (!envio.isBefore(limite)) {
+        System.out.println("Entrega fora do horário.");
+      } else {
+        System.out.println("Tarefa enviada com sucesso.");
+      }
+    }
+}
+// R: Entrega fora do horário
+
+12.  
+public class Tarefa implements Comparable<Tarefa> {
+  String titulo;
+  public Tarefa (String titulo) {
+    this.titulo = titulo;
+  }
+  
+  public int compareTo(Tarefa outra) {
+    return this.titulo.compareTo(outra.titulo);
+  }
+  
+  public static void main(String[] args) {
+    List<Tarefa> tarefas = new ArrayList<>();
+    tarefas.add(new Tarefa("Estudar"));
+    tarefas.add(new Tarefa ("Almoçar"));
+    tarefas.add(new Tarefa ("Dormir"));
+    Collections.sort(tarefas);
+    System.out.println(tarefas);
+  }
+}
+
+// R. [Almoçar, Dormir, Estudar]
+
+
+11.
+public static void main(String[] args) {
+      ArrayList<String> tarefas = new ArrayList<>();
+      tarefas.add("Estudar Java");
+      tarefas.add("Fazer exercicios");
+      tarefas.add("Revisar código");
+      for (String tarefa : tarefas) {
+        if (tarefa.contains("Java")) {
+          System.out.println("Tarefa de programação: " + tarefa);
+        }
+      }
+    }
+
+// R: Apenas "Estudar Java" será impressa
